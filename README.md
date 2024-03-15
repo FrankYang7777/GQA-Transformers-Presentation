@@ -1,1 +1,29 @@
-# Transformers-Presentation
+# Transformers Presentation - GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints
+
+## 1. Overview
+The paper focuses on advancing the efficiency and effectiveness of Transformer models, particularly in the context of decoder inference speed and model quality. This research is grounded in addressing the computational intensity and memory bandwidth overhead that plagues autoregressive decoder inference in Transformer models. The paper introduces a novel methodology known as Grouped-Query Attention (GQA), which is an innovative take on optimizing model structure for better performance. 
+
+## 2. Introduction
+
+The research begins by identifying the challenge of memory bandwidth overhead in Transformer models during decoder inference, a critical bottleneck that slows down model performance. The conventional multi-query attention (MQA) mechanism, while speeding up inference by utilizing a single key-value head, often results in a trade-off with model quality. To address these limitations, the paper proposes a two-fold solution:
+
+### 2.1. Uptraining existing models with MQA:
+Leveraging only 5% of the original pre-training compute, this process efficiently transforms multi-head attention models into their MQA counterparts.
+2: Introducing Grouped-Query Attention (GQA):
+### 2.2. GQA is presented as a generalized form of MQA that employs an intermediate number of key-value heads, striking a balance between speed and quality.
+
+## 3. Methodology
+
+The methodology section delves deep into the procedural aspects of implementing GQA. It consists of two primary processes:
+
+### 3.1 Uptraining: 
+
+Transforming multi-head models into MQA models involves pooling the projection matrices of key and value heads into a single matrix, followed by additional pre-training to adapt the model to this new structure.
+
+(Insert the uptraining code here)
+
+### 3.2 Grouped-Query Attention: 
+
+GQA divides query heads into groups, with each group sharing a single key and value head. This structure interpolates between the multi-head and MQA setups, aiming for a balance of speed and accuracy.
+
+(Insert the Grouped-Query Attention code here)
