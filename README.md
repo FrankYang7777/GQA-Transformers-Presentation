@@ -11,13 +11,11 @@ The research begins by identifying the challenge of memory bandwidth overhead in
 
 ### 2.1. Uptraining existing models with MQA:
 Leveraging only 5% of the original pre-training compute, this process efficiently transforms multi-head attention models into their MQA counterparts.
-
-```
-
-```
+![](https://github.com/FrankYang7777/GQA-Transformers-Presentation/blob/main/Overview%20Of%20Conversion%20from%20multi-head%20to%20multi-query%20attention.png)
 
 ### 2.2. Introducing Grouped-Query Attention (GQA)
 GQA is presented as a generalized form of MQA that employs an intermediate number of key-value heads, striking a balance between speed and quality.
+![](https://github.com/FrankYang7777/GQA-Transformers-Presentation/blob/main/Overview%20of%20grouped-query%20method.png)
 
 ## 3. Methodology
 
@@ -26,14 +24,14 @@ The methodology section delves deep into the procedural aspects of implementing 
 ### 3.1 Uptraining: 
 
 Transforming multi-head models into MQA models involves pooling the projection matrices of key and value heads into a single matrix, followed by additional pre-training to adapt the model to this new structure.
+```
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/FrankYang7777/GQA-Transformers-Presentation/blob/main/Overview%20Of%20Conversion%20from%20multi-head%20to%20multi-query%20attention.png)
+```
+
 
 ### 3.2 Grouped-Query Attention: 
 
 GQA divides query heads into groups, with each group sharing a single key and value head. This structure interpolates between the multi-head and MQA setups, aiming for a balance of speed and accuracy.
-
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/FrankYang7777/GQA-Transformers-Presentation/blob/main/Overview%20of%20grouped-query%20method.png)
 
 ## 4. Experiments
 
