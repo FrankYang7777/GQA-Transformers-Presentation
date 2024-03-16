@@ -1,1 +1,32 @@
+\begin{algorithm}
+\caption{Uptraining Multi-Head to Multi-Query Attention}
+\begin{algorithmic}[1]
 
+\Require $M_{\text{MHA}}$: Multi-Head Attention model
+\Require $D_{\text{train}}$: Training dataset
+\Require $\alpha = 0.05$: Proportion of original training compute for uptraining
+
+\State $M_{\text{MQA}} \gets \text{ConvertToMQA}(M_{\text{MHA}})$
+
+\Function{ConvertToMQA}{$M_{\text{MHA}}$}
+    \State Initialize $M_{\text{MQA}}$ with $M_{\text{MHA}}$'s architecture
+    \For{each attention layer in $M_{\text{MHA}}$}
+        \State $K_{\text{pooled}} \gets \text{mean}(\{K_{h} | h \in \text{Heads}\})$
+        \State $V_{\text{pooled}} \gets \text{mean}(\{V_{h} | h \in \text{Heads}\})$
+        \State Assign $K_{\text{pooled}}, V_{\text{pooled}}$ to corresponding layer in $M_{\text{MQA}}$
+    \EndFor
+    \State \Return $M_{\text{MQA}}$
+\EndFunction
+
+\State $steps_{\text{total}} \gets$ Number of steps in $M_{\text{MHA}}$'s original pre-training
+\State $steps_{\text{uptrain}} \gets \lceil steps_{\text{total}} \times \alpha \rceil$
+
+\For{$step = 1$ to $steps_{\text{uptrain}}$}
+    \State $batch \gets$ Sample from $D_{\text{train}}$
+    \State Update $M_{\text{MQA}}$ on $batch$ \Comment{Using pooled $K$ and $V$}
+\EndFor
+
+\State \textbf{return} $M_{\text{MQA}}$
+
+\end{algorithmic}
+\end{algorithm}
