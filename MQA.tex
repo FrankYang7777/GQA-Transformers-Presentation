@@ -1,12 +1,11 @@
-\documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry} % Adjust margins as needed
+\documentclass{article}
+\usepackage{amsmath, amssymb}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
-\usepackage{amsmath}
 
-\title{MQA Uptraining Pseudocode}
-\author{} % Add your name or leave empty
-\date{} % Add a date or leave empty for no date
+\title{Pseudocode for Multi-Query Attention (MQA)}
+\author{Siyu Yang}
+\date{}
 
 \begin{document}
 
@@ -15,7 +14,6 @@
 \begin{algorithm}
 \caption{Uptraining Multi-Head to Multi-Query Attention}
 \begin{algorithmic}[1]
-
 \Require $M_{\text{MHA}}$: Multi-Head Attention model
 \Require $D_{\text{train}}$: Training dataset
 \Require $\alpha = 0.05$: Proportion of original training compute for uptraining
@@ -41,7 +39,6 @@
 \EndFor
 
 \State \textbf{return} $M_{\text{MQA}}$
-
 \end{algorithmic}
 \end{algorithm}
 
