@@ -27,3 +27,14 @@ Transforming multi-head models into MQA models involves pooling the projection m
 GQA divides query heads into groups, with each group sharing a single key and value head. This structure interpolates between the multi-head and MQA setups, aiming for a balance of speed and accuracy.
 
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/FrankYang7777/GQA-Transformers-Presentation/blob/main/Overview%20of%20grouped-query%20method.png)
+
+## 4. Experiments
+
+### 4.1 Experimental Setup
+
+### 4.2 Main Results
+
+### 4.3 Ablations
+
+## 5. Related Work
+
