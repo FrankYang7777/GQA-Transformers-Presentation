@@ -24,11 +24,14 @@ The methodology section delves deep into the procedural aspects of implementing 
 ### 3.1 Uptraining: 
 
 Transforming multi-head models into MQA models involves pooling the projection matrices of key and value heads into a single matrix, followed by additional pre-training to adapt the model to this new structure.
-![](https://github.com/FrankYang7777/GQA-Transformers-Presentation/blob/main/mqa_pseudocode.pdf)
+
+<img width="490" alt="Screenshot 2024-03-16 150203" src="https://github.com/FrankYang7777/GQA-Transformers-Presentation/assets/142248146/184be52d-f838-4350-9f95-424a1afac17b">
 
 ### 3.2 Grouped-Query Attention: 
 
 GQA divides query heads into groups, with each group sharing a single key and value head. This structure interpolates between the multi-head and MQA setups, aiming for a balance of speed and accuracy.
+
+<img width="430" alt="Screenshot 2024-03-16 151237" src="https://github.com/FrankYang7777/GQA-Transformers-Presentation/assets/142248146/6834293e-8ee1-401d-988a-4c86fcb4ced4">
 
 ## 4. Experiments
 
