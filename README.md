@@ -24,10 +24,7 @@ The methodology section delves deep into the procedural aspects of implementing 
 ### 3.1 Uptraining: 
 
 Transforming multi-head models into MQA models involves pooling the projection matrices of key and value heads into a single matrix, followed by additional pre-training to adapt the model to this new structure.
-```
-
-```
-
+![](https://github.com/FrankYang7777/GQA-Transformers-Presentation/blob/main/mqa_pseudocode.pdf)
 
 ### 3.2 Grouped-Query Attention: 
 
