@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\title{Pseudocode for Grouped-Query Attention (GQA) Uptraining}
+\author{Siyu Yang, Based on the paper by Joshua Ainslie et al.}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{algorithm}
+\caption{Uptraining for Grouped-Query Attention}
+\begin{algorithmic}[1]
+\Require $M_{\text{MHA}}$: Multi-Head Attention model
+\Require $D_{\text{train}}$: Training dataset
+\Require $G$: Number of groups in GQA
+\Require $\alpha = 0.05$: Proportion of original training compute for uptraining
+
+\State $M_{\text{GQA}} \gets \text{ConvertToGQA}(M_{\text{MHA}}, G)$
+
+\Function{ConvertToGQA}{$M_{\text{MHA}}, G$}
+    \State Initialize $M_{\text{GQA}}$ with $M_{\text{MHA}}$'s architecture
+    \For{each attention layer in $M_{\text{MHA}}$}
+        \For{$g = 1$ to $G$}
+            \State $K_{\text{group}}^g \gets \text{mean}(\{K_{h} | h \in \text{Group}_g\})$
+            \State $V_{\text{group}}^g \gets \text{mean}(\{V_{h} | h \in \text{Group}_g\})$
+        \EndFor
+        \State Assign grouped $K_{\text{group}}, V_{\text{group}}$ to $M_{\text{GQA}}$
+    \EndFor
+    \State \Return $M_{\text{GQA}}$
+\EndFunction
+
+\State $steps_{\text{total}} \gets$ Number of steps in $M_{\text{MHA}}$'s original pre-training
+\State $steps_{\text{uptrain}} \gets \lceil steps_{\text{total}} \times \alpha \rceil$
+
+\For{$step = 1$ to $steps_{\text{uptrain}}$}
+    \State $batch \gets$ Sample from $D_{\text{train}}$
+    \State Update $M_{\text{GQA}}$ on $batch$ \Comment{Using grouped $K$ and $V$}
+\EndFor
+
+\State \textbf{return} $M_{\text{GQA}}$
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
