@@ -1,7 +1,9 @@
 # Transformers Presentation - GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints
 
+Presenter: Siyu Yang
+
 ## 1. Overview
-The paper focuses on advancing the efficiency and effectiveness of Transformer models, particularly in the context of decoder inference speed and model quality. This research is grounded in addressing the computational intensity and memory bandwidth overhead that plagues autoregressive decoder inference in Transformer models. The paper introduces a novel methodology known as Grouped-Query Attention (GQA), which is an innovative take on optimizing model structure for better performance. 
+The research team focuses on advancing the efficiency and effectiveness of Transformer models, particularly in the context of decoder inference speed and model quality. This research is grounded in addressing the computational intensity and memory bandwidth overhead that plagues autoregressive decoder inference in Transformer models. The paper introduces a novel methodology known as Grouped-Query Attention (GQA), which is an innovative take on optimizing model structure for better performance. 
 
 ## 2. Introduction
 
@@ -9,8 +11,13 @@ The research begins by identifying the challenge of memory bandwidth overhead in
 
 ### 2.1. Uptraining existing models with MQA:
 Leveraging only 5% of the original pre-training compute, this process efficiently transforms multi-head attention models into their MQA counterparts.
-2: Introducing Grouped-Query Attention (GQA):
-### 2.2. GQA is presented as a generalized form of MQA that employs an intermediate number of key-value heads, striking a balance between speed and quality.
+
+```
+
+```
+
+### 2.2. Introducing Grouped-Query Attention (GQA)
+GQA is presented as a generalized form of MQA that employs an intermediate number of key-value heads, striking a balance between speed and quality.
 
 ## 3. Methodology
 
