@@ -53,11 +53,24 @@ Performance and Inference Time: GQA models achieved a close approximation to the
 
 Fine-tuning and Inference Details: For fine-tuning, consistent settings were used across all tasks, including learning rate, batch size, and dropout rate. The models were trained until convergence, and greedy decoding was used for inference.
 
+<img width="549" alt="Screenshot 2024-03-17 182100" src="https://github.com/FrankYang7777/GQA-Transformers-Presentation/assets/142248146/e44e9946-b05c-449a-8288-46c09490727a">
+
+<img width="393" alt="Screenshot 2024-03-17 181906" src="https://github.com/FrankYang7777/GQA-Transformers-Presentation/assets/142248146/fed38f91-67ee-4f0d-8ac5-7e9d70c33b6f">
+
+
 ### 4.3 Ablations
 
 Checkpoint Conversion Methods: Different strategies for converting MHA models to MQA were tested, including mean pooling, selecting the first head, and random initialization. Mean pooling emerged as the most effective method, likely due to its ability to preserve information from the pre-trained model.
 
+<img width="348" alt="Screenshot 2024-03-17 181923" src="https://github.com/FrankYang7777/GQA-Transformers-Presentation/assets/142248146/8bded4f5-d9d9-43fe-ba5c-d741b197cdd7">
+
+
 Uptraining Proportion: The effect of different uptraining proportions on the performance of T5 XXL with MQA and GQA was examined. It was found that GQA achieved reasonable performance immediately after conversion, while MQA required uptraining to reach useful levels of performance.
+
+<img width="334" alt="Screenshot 2024-03-17 181933" src="https://github.com/FrankYang7777/GQA-Transformers-Presentation/assets/142248146/d8eb9f1f-9346-48f4-a0ac-5a6b91d74b9c">
 
 Number of GQA Groups: The influence of the number of groups in GQA on inference speed was analyzed. The study suggested a trade-off where increasing the number of groups from MQA results in modest slowdowns initially, with higher costs as the configuration moves closer to full MHA. An optimal middle ground was identified.
 
+<img width="368" alt="Screenshot 2024-03-17 181946" src="https://github.com/FrankYang7777/GQA-Transformers-Presentation/assets/142248146/adddaa9b-96ad-4b12-af4d-81ed540ead0d">
+
+## 5 Reference List
