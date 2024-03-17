@@ -74,3 +74,6 @@ Number of GQA Groups: The influence of the number of groups in GQA on inference 
 <img width="368" alt="Screenshot 2024-03-17 181946" src="https://github.com/FrankYang7777/GQA-Transformers-Presentation/assets/142248146/adddaa9b-96ad-4b12-af4d-81ed540ead0d">
 
 ## 5 Reference List
+
+[1] J. Ainslie, J. Lee-Thorp, M D. Jong, Y. Zemlyanskiy, F. Lebron, S. Sanghai, GQA: Training Generalized        Multi-Query Transformer Models from Multi-Head Checkpoints, Retrieved from 
+    https://arxiv.org/pdf/2305.13245.pdf
