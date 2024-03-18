@@ -74,4 +74,6 @@ Number of GQA Groups: The influence of the number of groups in GQA on inference 
 
 [1] J. Ainslie, J. Lee-Thorp, M D. Jong, Y. Zemlyanskiy, F. Lebron, S. Sanghai, GQA: Training Generalized        Multi-Query Transformer Models from Multi-Head Checkpoints, Retrieved from 
     https://arxiv.org/pdf/2305.13245.pdf
-[2] F. Odom, grouped-query-attention-pytorch, https://github.com/fkodom/grouped-query-attention-pytorch/tree/main
+## 6 Code Demo
+
+F. Odom, grouped-query-attention-pytorch, https://github.com/fkodom/grouped-query-attention-pytorch/tree/main
